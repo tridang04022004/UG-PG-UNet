@@ -1,0 +1,57 @@
+# Ignore dataset directories (local copy of datasets)
+/data/
+*/data/
+**/data/
+
+# MoNuSeg specific dataset folders
+MoNuSegImprove/train/
+MoNuSegImprove/val/
+MoNuSegImprove/val_archive/
+MoNuSegImprove/train/aug/
+MoNuSegImprove/train/images/
+MoNuSegImprove/train/annots/
+MoNuSegImprove/test_results/
+MoNuSegImprove/outputs/
+
+# Herlev dataset folders (common names)
+Herlev/data/
+Herlev/**/images/
+Herlev/**/annots/
+Herlev/**/outputs/
+
+# Generic outputs and checkpoints
+*.BMP
+*.png
+*.tif
+
+# Generic outputs and checkpoints
+outputs/
+**/outputs/
+**/inference_results/
+**/test_results/
+
+# Model checkpoints and archives
+*.pth
+*.pt
+*.ckpt
+*.tar
+*.h5
+
+# Logs, metrics, and intermediate artifacts
+*.log
+*.csv
+*.npz
+*.npy
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtualenvs / environment files
+venv/
+env/
+.env
+
+# OS artifacts
+.DS_Store
+Thumbs.db

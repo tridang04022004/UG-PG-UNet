@@ -28,24 +28,6 @@ UncertainGuidePGU/
 ├── demo_uncertainty_guided.py      # Usage examples
 ```
 
-## 🔧 Requirements
-
-### Core Dependencies
-
-- Python 3.8+
-- PyTorch 1.9+
-- torchvision
-- numpy
-- PIL (Pillow)
-- matplotlib
-- tqdm
-
-### Optional Dependencies
-
-- scikit-learn (for advanced metrics)
-- seaborn (for enhanced visualizations)
-- xml.etree.ElementTree (for XML annotation parsing)
-
 Install core requirements:
 
 ```bash
@@ -69,6 +51,8 @@ model = ProgressiveUNet(in_channels=3, out_channels=7, stage=4, task_type='class
 # Create uncertainty-guided loss
 criterion = UncertaintyGuidedLoss(task_type='segmentation')
 ```
+
+## Our training samples
 
 ### 2. MoNuSeg Nuclei Segmentation
 

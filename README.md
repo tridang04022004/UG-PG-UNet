@@ -1,6 +1,6 @@
 # Uncertainty-Guided Progressive U-Net
 
-This repository contains an implementation of an Uncertainty-Guided Progressive U-Net for medical image analysis, with support for both nuclei segmentation (MoNuSeg) and cervical cell classification (Herlev) tasks.
+This repository contains an implementation of an Uncertainty-Guided Progressive U-Net for medical image analysis. We tested it on 2 tasks: nuclei segmentation (MoNuSeg) and cervical cell classification (Herlev).
 
 ## 🏗️ Architecture
 
@@ -26,16 +26,6 @@ UncertainGuidePGU/
 ├── UG_unet_parts.py                # U-Net building blocks
 ├── uncertainty_guided_trainer.py    # Progressive training framework
 ├── demo_uncertainty_guided.py      # Usage examples
-├── test_implementation.py          # Basic tests
-├── MoNuSegImprove/                 # MoNuSeg nuclei segmentation
-│   ├── train_aug_monuseg.py        # Training script
-│   ├── test_monuseg.py             # Evaluation script
-│   ├── aug_monuseg_dataset.py      # Augmented dataset loader
-│   └── monuseg_dataset.py          # Basic dataset loader
-└── Herlev/                         # Herlev cervical cell classification
-    ├── train_herlev.py             # Training script
-    ├── test_herlev.py              # Evaluation script
-    └── herlev_dataset.py           # Dataset loader
 ```
 
 ## 🔧 Requirements
@@ -59,13 +49,7 @@ UncertainGuidePGU/
 Install core requirements:
 
 ```bash
-pip install torch torchvision numpy pillow matplotlib tqdm
-```
-
-Install optional dependencies:
-
-```bash
-pip install scikit-learn seaborn
+pip install -r requirements.txt
 ```
 
 ## 🚀 Quick Start
@@ -113,7 +97,7 @@ python train_herlev.py --data_dir "./data/Herlev Dataset/train" --output_dir ./o
 #### Evaluation
 
 ```bash
-python test_herlev.py --model ./outputs/pgunet_stage4_best.pth --data "./data/Herlev Dataset/train" --split test
+python test_herlev.py --model ./outputs/herlev_stage4_best.pth --data "./data/Herlev Dataset/train" --split test
 ```
 
 ## 📊 Datasets
@@ -237,48 +221,10 @@ class CustomTrainer(UncertaintyGuidedProgressiveTrainer):
         pass
 ```
 
-## 🛠️ Troubleshooting
-
-### Common Issues
-
-1. **Memory Issues**: Reduce batch size or use gradient accumulation
-2. **CUDA Out of Memory**: Use smaller image sizes or enable mixed precision
-3. **Slow Training**: Enable data loading workers and pin memory
-
-### Optional Dependencies
-
-The code gracefully handles missing optional dependencies:
-
-- Without scikit-learn: Uses manual metric calculations
-- Without seaborn: Falls back to matplotlib for visualizations
-
-## 📚 Citation
-
-If you use this implementation in your research, please cite:
-
-```bibtex
-@article{uncertainty_guided_pgunet,
-  title={Uncertainty-Guided Progressive U-Net for Medical Image Analysis},
-  author={Your Name},
-  year={2024}
-}
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests: `python test_implementation.py`
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🙏 Acknowledgments
 
 - Original U-Net architecture by Ronneberger et al.
+- Progressive U-Net concepts inspired by [Springer Chapter](https://link.springer.com/chapter/10.1007/978-3-030-37969-8_7)
 - MoNuSeg dataset providers
 - Herlev dataset contributors
 - PyTorch community for excellent deep learning framework
